@@ -27,3 +27,16 @@ go test ./...
 - `t.FailNow()` akan menggagalkan unit test pada saat itu juga (langsung), tanpa melanjutkan eksekusi unit test.
 - `t.Error(args..)` lebih seperti melakukan log (print) error, namun ketika telah melakukan log error, akan secara otomatis memanggil `Fail()`. Sehingga menganggap unit test dianggao gagal. Namun karena hanya memanggil `Fail()`, artinya eksekusi unit test akan tetap berjalan sampai selesai.
 - `t.Fatal(args..)` mirip dengan `Error()` hanya saja ketika telah melakukan log error, akan memanggil `FailNow()`. Sehingga mengakibatkan eksekusi unit test terhenti.
+
+## Test with Assertion (mod with `Testify`)
+
+Get `Testify`
+```bash
+go get github.com/stretchr/testify
+```
+
+### Assert vs Require
+
+- Testify menyediakan dua package untuk assertion, yaitu `assert` dan `require`.
+- Saat menggunakan `assert`, jika pengecekan gagal maka `assert` akan memanggil `Fail()` artinya eksekusi unit test akan tetap dilakukan.
+- Namun jika menggunakan `require`, jika pengecekan gagal maka `require` akan memanggil `FailNow()` artinya eksekusi unit test tidak akan dilanjutkan.
