@@ -60,5 +60,21 @@ go get github.com/stretchr/testify
 > **Warning**
 > Ingat, _function_ `TestMain` hanya dieksekusi hanya sekali per Go-Lang `package`, bukan per tiap _function_ ***unit-test***
 
+## `Sub-Test`
+- Go-Lang mendukung fitur pembuatan _function_ ***unit-test*** didalam _function_ ***unit-test***.
+- Fitur ini memang sedikit aneh dan jarang sekali dimiliki oleh Bahasa Pemrograman yang lainnya.
+- Untuk membuat `sub-test`, bisa dengan menggunakan _function_ `Run()` pada `struct` yang dimiliki oleh `*testing.T`.
 
-
+### Menjalankan Hanya `Sub-Test`
+Untuk menjalankan sebuah `unit-test` _function_, dapat menjalankan dengan perintah:
+```bash
+go test -run <FunctionNameTest>
+```
+Untuk menjalankan hanya satu `sub-test`, dapat menjalankan dengan perintah:
+```bash
+go test -run <FunctionNameTest/SubTestName>
+```
+Atau untuk semua `test`, semua `sub-test` di semua _function_, dapat menjalankan dengan perintah:
+```bash
+go test -run /<SubTestName>
+```
