@@ -78,3 +78,7 @@ Atau untuk semua `test`, semua `sub-test` di semua _function_, dapat menjalankan
 ```bash
 go test -run /<SubTestName>
 ```
+
+## `Table-Test`
+- `Table-Test` yaitu dimana kita menyediakan data berupa `slice` yang berisi parameter dan ekspektasi hasil dari `unit-test`.
+- Lalu `slice` tersebut kita iteraskan menggunakan `sub-test`.
