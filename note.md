@@ -40,3 +40,8 @@ go get github.com/stretchr/testify
 - Testify menyediakan dua package untuk assertion, yaitu `assert` dan `require`.
 - Saat menggunakan `assert`, jika pengecekan gagal maka `assert` akan memanggil `Fail()` artinya eksekusi unit test akan tetap dilakukan.
 - Namun jika menggunakan `require`, jika pengecekan gagal maka `require` akan memanggil `FailNow()` artinya eksekusi unit test tidak akan dilanjutkan.
+
+### Skip Test
+- Kadang dalam keadaan tertentu, kita ingin membatalkan eksekusi `unit test`.
+- Di Golang juga dapat membatalkan eksekusi `unit test` jika ingin.
+- Untuk membatalkan `unit test` bisa menggunakan function `Skip()`
