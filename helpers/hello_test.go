@@ -9,6 +9,14 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMain(m *testing.M) {
+	fmt.Println("BEFORE UNIT TEST")
+
+	m.Run()
+
+	fmt.Println("AFTER UNIT TEST")
+}
+
 func TestHello(t *testing.T) {
 	result := Hello("Tiyan")
 	if result != "Hello Tiyan" {
@@ -41,17 +49,3 @@ func TestHelloWithSkipTest(t *testing.T) {
 	result := Hello("Attirmidzi")
 	assert.Equal(t, "Hello Attirmidzi", result, "Result must be 'Hello Attirmidzi'")
 }
-
-// RUN IN TERMINAL
-
-// run test all on package
-// go test
-
-// `-v` for see detail func test
-// go test -v
-
-// run test spesific func
-// go test -run funcTestName
-
-// run test all package (from root dir)
-// go test ./...

@@ -45,3 +45,20 @@ go get github.com/stretchr/testify
 - Kadang dalam keadaan tertentu, kita ingin membatalkan eksekusi `unit test`.
 - Di Golang juga dapat membatalkan eksekusi `unit test` jika ingin.
 - Untuk membatalkan `unit test` bisa menggunakan function `Skip()`
+
+### Before and After Test
+- Biasanya dalam `unit test`, kadang kita ingin melakukan sesuatu sebelum dan setelah sebuah unit test dieksekusi.
+- Jikalau kode yang kita lakukan sebelum dan setelah selalu sama antara `unit test` function, maka membuat manual di `unit test` function nya adalah hal yang membosankan dan terlalu banyak kode duplikat jadinya.
+- Untungnya di Golang terdapat fitur yang namnya `testing.M`.
+- Fitur ini bernama `Main`, dimana digunakan untuk mengatur eksekusi `unit test`, namun hal ini juga bisa kita gunakan untuk melakukan Before dan After di `unit test`.
+
+## `testing.M`
+- Untuk mengatur eksekusi ***unit-test***, cukup dengan membuat sebuah _function_ bernama `TestMain` dengan parameter `*testing.M`.
+- Jika terdapat _function_ `TestMain` tersebut, maka secara otomatis Go-Lang akan mengeksekusi _function_ ini tiap kali akan menjalankan ***unit-test*** di sabuah `package`.
+- Dengan ini kita bisa mengatur `Before` dan `After` ***unit-test*** sesuai dengan keinginan.
+
+> **Warning**
+> Ingat, _function_ `TestMain` hanya dieksekusi hanya sekali per Go-Lang `package`, bukan per tiap _function_ ***unit-test***
+
+
+
