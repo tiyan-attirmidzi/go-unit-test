@@ -142,3 +142,4 @@ go test -v -run=<UnitTestFunctionNameNotInPackage> -bench=<BenchmarkFunctionName
 Jika ingin menjalankan `benchmark` di-_root_ _module_ dan ingin semua _module_ dijalankan, dapat menggunakan perintah:
 ```bash
 go test -v -bench=. ./...
+```
