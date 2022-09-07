@@ -72,7 +72,7 @@ go test -run <FunctionNameTest>
 ```
 Untuk menjalankan hanya satu `sub-test`, dapat menjalankan dengan perintah:
 ```bash
-go test -run <FunctionNameTest/SubTestName>
+go test -run <FunctionNameTest>/<SubTestName>
 ```
 Atau untuk semua `test`, semua `sub-test` di semua _function_, dapat menjalankan dengan perintah:
 ```bash
@@ -143,3 +143,16 @@ Jika ingin menjalankan `benchmark` di-_root_ _module_ dan ingin semua _module_ d
 ```bash
 go test -v -bench=. ./...
 ```
+
+## Sub-Benchmark
+- Sama seperti `testing.T`, di-`testing.B` juga dapat membuat `sub-benchmark` menggunakan _function_ `Run()`.
+
+### Menjalankan Hanya Sub-Benchmark
+Saat menjalankan `benchmark` _function_, maka semua `sub-benchmark` akan berjalan. Namun jika hanya ingin menjalankan salah satu `sub-benchmark`-nya saja, dapat menggunakan perintah:
+```bash
+go test -v -bench=<BenchmarkName>/<SubBenchmarkName>
+```
+
+## Table-Benchmark
+- Sama seperti `unit-test`, programmer Go-Lang terbiasa membuat `table-benchmark` juga.
+- Ini digunakan agar bisa memudahkan dalam melakukan `performance test` dengan kombinasi data berbeda-beda tanpa harus membuat banyak `benchmark` _function_.

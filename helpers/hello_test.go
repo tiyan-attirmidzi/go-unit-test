@@ -15,6 +15,47 @@ type Tests struct {
 	Expected string
 }
 
+func BenchmarkHelloTable(b *testing.B) {
+	data := []Tests{
+		{
+			Name:     "Tiyan",
+			Request:  "Tiyan",
+			Expected: "Hello Tiyan",
+		},
+		{
+			Name:     "Attirmidzi",
+			Request:  "Attirmidzi",
+			Expected: "Hello Attirmidzi",
+		},
+		{
+			Name:     "TiyanAttirmidzi",
+			Request:  "Tiyan Attirmidzi",
+			Expected: "Hello Tiyan Attirmidzi",
+		},
+	}
+
+	for _, benchmark := range data {
+		b.Run(benchmark.Name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				Hello(benchmark.Name)
+			}
+		})
+	}
+}
+
+func BenchmarkHelloSub(b *testing.B) {
+	b.Run("Tiyan", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			Hello("Tiyan")
+		}
+	})
+	b.Run("Attirmidzi", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			Hello("Attirmidzi")
+		}
+	})
+}
+
 func BenchmarkHelloAttirmidzi(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Hello("Attirmidzi")
