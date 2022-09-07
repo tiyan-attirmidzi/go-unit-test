@@ -98,3 +98,47 @@ go test -run /<SubTestName>
 - Untuk contoh kasus yang digunakan adalah aplikasi Go-Lang yang melakukan _query_ ke _database_.
 - Dengan mambuat `Layer Service` sebagai _Business Logic_ dan `Layer Repository` sebagai jembatan ke _Database_.
 - Agar kode mudah untuk di-`testing`, didasarkan agar membuat kontrak berupa _interface_
+
+# Benchmark
+- Selain `unit-test`, Go-Lang `testing` package juga mendukung untuk melakukan `benchmark`.
+- `Benchmark` adalah mekanisme menghitung kecepatan performa pada kode aplikasi.
+- `Benchmark` di Go-Lang dilakukan dengan cara atau secara otomatis melakukan iterasi kode yang dipanggil berkali-kali sampai waktu tertentu.
+- Dalam hal ini, tidak perlu menentukan jumlah iterasi dan lamanya, karena itu sudah diatur dalam `struct` yang dimiliki oleh`testing.B` bawaan dari `testing` package.
+
+## `testing.B`
+- `testing.B` adalah `struct` yang digunakan untuk melakukan `benchmark`.
+- `testing.B` mirip dengan `testing.T`, terdapat _function_ `Fail()`, `FailNow()`, `Error()`, `Fatal()` dan lain-lain.
+- Yang membedakan, ada beberapa _attribute_ dan _function_ tambahan yang digunakan untuk `benchmark`.
+- Salah satunya adalah _attribute_ ***N***, ini digunakan untuk melakukan total iterasi sebuah `benchmark`.
+
+### Cara Kerja Benchmark
+- Cara kerja `benchmark` di Go-Lang sangat sederhana, dimana cukup dengan membuat perulangan sejumlah ***N*** _attribute_
+- Nanti secara otomatis Go-Lang akan melakukan eksekusi sejumlah perulangan yang ditentukan secara otomatis, lalu mendeteksi berapa lama proses tersebut berjalan, dan disimpulkan performa `benchmark`-nya dalam waktu.
+
+## Benchmark _Function_
+- Mirip seperti `unit-test`, untuk `benchmark` pun di Go-Lang telah ditentukan nama _function_-nya.
+- Selain itu, harus memiliki parameter `(b *testing.B)`.
+- Dan tidak boleh mengembalikan `return` _value_.
+- Untik nama file `benchmark`, sama seperti `unit-test`. Nama file kode aplikasi yang diikuti/diakhiri dengan `_test` (ex: `hello_world_test.go`).
+
+### Menjalankan Benchmark
+Untuk menjalankan seluruh `benchmark` di-_module_, dapat menggunakan perintah sama seperti `test`, namun ditambahkan parameter `bench`:
+```bash
+go test -v -bench=.
+```
+
+Jika hanya ingin menjalankan `benchmark` tanpa `unit-test`, dapat menggunakan perintah:
+```bash
+go test -v -run=<UnitTestFunctionNameNotInPackage> -bench=.
+```
+> **Info**
+> `UnitTestFunctionNameNotInPackage` merupakan nama _function_ yang tidak ada dalam `unit-test`. Contohnya: `NotInUnitTest` 
+
+Perintah `command` diatas selain menjalankan `benchmark` akan menjalankan `unit-test`, jika hanya ingin menjalankan `benchmark` tertentu dapat menggunakan perintah:
+```bash
+go test -v -run=<UnitTestFunctionNameNotInPackage> -bench=<BenchmarkFunctionName>
+```
+
+Jika ingin menjalankan `benchmark` di-_root_ _module_ dan ingin semua _module_ dijalankan, dapat menggunakan perintah:
+```bash
+go test -v -bench=. ./...
