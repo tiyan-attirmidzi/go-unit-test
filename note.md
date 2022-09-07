@@ -131,7 +131,7 @@ Jika hanya ingin menjalankan `benchmark` tanpa `unit-test`, dapat menggunakan pe
 ```bash
 go test -v -run=<UnitTestFunctionNameNotInPackage> -bench=.
 ```
-> **Info**
+> **Note**
 > `UnitTestFunctionNameNotInPackage` merupakan nama _function_ yang tidak ada dalam `unit-test`. Contohnya: `NotInUnitTest` 
 
 Perintah `command` diatas selain menjalankan `benchmark` akan menjalankan `unit-test`, jika hanya ingin menjalankan `benchmark` tertentu dapat menggunakan perintah:
