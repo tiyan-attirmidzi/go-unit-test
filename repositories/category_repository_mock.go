@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"github.com/stretchr/testify/mock"
-	"github.com/tiyan-attirmidzi/learn-go-unit-test/entities"
+	"github.com/tiyan-attirmidzi/go-unit-test/entities"
 )
 
 type CategoryRepositoryMock struct {

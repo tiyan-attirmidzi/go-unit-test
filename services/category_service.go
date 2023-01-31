@@ -3,8 +3,8 @@ package services
 import (
 	"errors"
 
-	"github.com/tiyan-attirmidzi/learn-go-unit-test/entities"
-	"github.com/tiyan-attirmidzi/learn-go-unit-test/repositories"
+	"github.com/tiyan-attirmidzi/go-unit-test/entities"
+	"github.com/tiyan-attirmidzi/go-unit-test/repositories"
 )
 
 type CategoryService struct {

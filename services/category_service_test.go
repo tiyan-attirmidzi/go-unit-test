@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"github.com/tiyan-attirmidzi/learn-go-unit-test/entities"
-	"github.com/tiyan-attirmidzi/learn-go-unit-test/repositories"
+	"github.com/tiyan-attirmidzi/go-unit-test/entities"
+	"github.com/tiyan-attirmidzi/go-unit-test/repositories"
 )
 
 var (
